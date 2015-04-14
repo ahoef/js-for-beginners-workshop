@@ -49,10 +49,10 @@
                 <h3>What is JavaScript?</h3>
                 <br>
                 <ul> 
-                    <li>A programming language for building dynamic webpages that respond to input from users</li>
-                    <li>First emerged on the web in 1995 with Netscape Navigator 2.0</li>
-                    <li>Now one of the most common languages across the web</li>
-                    <li>An essential part of a web developer's toolkit</li>
+                    <li class="fragment">A programming language for building dynamic webpages that respond to input from users</li>
+                    <li class="fragment">First emerged on the web in 1995 with Netscape Navigator 2.0</li>
+                    <li class="fragment">Now one of the most common languages across the web</li>
+                    <li class="fragment">An essential part of a web developer's toolkit</li>
                 </ul>
             </section>
 <!--             <section>
@@ -946,25 +946,418 @@ var imgKitten = document.getElementById('kittenPic');
               </code></pre>
             </section>
             <section>
-              <h3>DOM Access: By Tag Name</h3>
-              <p>You can certain types of HTML elements using this method:</p>
-              <pre><code>
-document.getElementsByTagName(tagName);
-              </code></pre>
-              <p>To find:</p>
-              <pre><code>
-&lt;li&gt;Daisy&lt;/li&gt;
-&lt;li&gt;Tulip&lt;/li&gt;
-              </code></pre>
-              <p>We would use:</p>
-              <pre><code>
-var listItems = document.getElementsByTagName('li');
-for (var i =0; i &lt; listItems.length; i++) {
-  var listItem = listItems[i];
-}
-              </code></pre>
+              <h3>Traversing the DOM</h3>
+              <br>
+        <pre><code>
+document.getElementById('presentation');
+document.getElementsByClassName('slide');
+document.getElementsByTagName('body');
+document.querySelectorAll('a');
+document.querySelector('img');
+
+</code>
+</pre>
+<a href="http://callmenick.com/post/basics-javascript-dom-manipulation">More on JS DOM Access!</a>
             </section>
-            <section>
+                    <section>
+          <h3>What is jQuery?</h3>
+          <br>
+          <ul>
+            <li class="fragment">A library of predefined JavaScript functions</li>
+            <li class="fragment">A tool that prevents developers from having to reinvent the wheel</li>
+            <li class="fragment">A well-supported cross browser solution</li>
+            <li class="fragment">Not a replacement for an understanding of JavaScript</li>
+          </ul>
+        </section>
+
+                <section>
+          <h3>Example: JavaScript</h3>
+          <br>
+
+          <p>To hide images:</p>
+<pre><code>var elems = document.getElementsByTagName("img");
+for (var i = 0; i< elems.length; i++) {
+  elems[i].style.display = "none";
+}
+</code></pre>
+        </section>
+
+        <section>
+          <h3>Example: jQuery</h3>
+          <br>
+
+          <p>To hide images:</p>
+<pre><code>$('img').hide();</code></pre>
+        </section>
+
+                <section>
+          <h3>Including jQuery</h3>
+          <br>
+          <ul>
+            <li ><a href="http://jquery.com/download/">Download</a> and serve local file</li>
+        </ul>
+<pre><code>&lt;script src="js/jquery.js"&gt;&lt;script&gt;</code></pre>
+<br>
+<p>OR</p>
+<br>
+              <ul>
+                <li>Use a content distribution network for a cached file</li>
+              </ul>
+              <pre><code>&lt;script src="http://code.jquery.com/jquery-2.1.3.js"&gt;&lt;script&gt;</code></pre>
+            </li>
+          </ul>
+        </section>
+                <section>
+          <h3>Document Readiness</h3>
+          <p>Most everything you want to do with jQuery requires the DOM to be fully loaded.</p>
+          <p>The browser renders the markup from top to bottom, then triggers a DOMReady event.</p>
+          <pre><code class="javascript">$(document).ready(function() {
+  // Handler for .ready() called.
+});</code></pre>
+<pre><code class="javascript">$(function() {
+  // Handler for .ready() called.
+});</code></pre>
+        </section>
+
+        <section id="anatomy2" class="twoColumns">
+          <h3>Anatomy of a jQuery call</h3>
+          <pre><code class="javascript">$('img').hide();</code></pre>
+          <p class="fragment"><span class="blue left">$()</span> <span>Global jQuery function. Alternately "jQuery()" Used to trigger all jQuery functionality.</span></p>
+          <p class="fragment"><span class="blue left">'img'</span> <span>Argument being passed into the global jQuery function. In this case, a selector to return all 'img' elements. Also accepts variables and html strings. Returns a jQuery collection/object</span></p>
+          <p class="fragment"><span class="blue left">.hide()</span> <span>jQuery method to hide the element by adding a style of 'display: none;' </span></p>
+          <p class="fragment"><span class="blue left">;</span> <span>Syntax to conclude a statement</span></p>
+        </section>
+        <section >
+          <h3>Anatomy of a jQuery call</h3>
+          <br>
+          <pre><code class="javascript">$('img').hide();</code></pre>
+          <br>
+         <ul>
+
+            <li class="fragment">$('img') is a selector</li>
+            <li class="fragment">.hide() is a method</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Selectors</h3>
+          <br>
+          <p>All CSS selectors are valid, plus some extras!</p>
+          <br>
+
+          <a href="http://code.tutsplus.com/tutorials/the-30-css-selectors-you-must-memorize--net-16048">30 CSS Selectors</a>
+          <br>
+
+          <a href="http://api.jquery.com/category/selectors/">jQuery Docs on Selectors</a>
+        </section>
+
+        <section>
+          <h3>Methods</h3>
+
+          <p>There are many jQuery methods- like tools in a toolkit!</p>
+          <br>
+          <ul>
+            <li>Getting/changing content within elements</li>
+            <li>Finding/changing elements themsleves</li>
+            <li>Changing attributes</li>
+            <li>Getting/changing dimensions & positions</li>
+            <li>Creating animations</li>
+            <li>Events</li>
+          </ul>
+          <br>
+          <br>
+          <a href="https://api.jquery.com/category/miscellaneous/dom-element-methods/">jQuery Docs on Methods</a>
+        </section>
+
+<!--         <section>
+          <h3>Methods</h3>
+
+          <br>
+          <p>So break it down even further, a method can be a getter, a setter, or both!</p>
+            <ol>
+              <li class="fragment">A Getter
+                <ul><li>The method retrieves something and stores it in the browser's memory</li></ul>
+              </li>
+              <li class="fragment">A Setter
+                <ul><li>The method takes action and changes something</li></ul>
+              </li>
+              <li class="fragment">Or Both!
+                <ul><li>Depending on how it is used, a method can either get or set (more on this later)</li></ul>
+              </li>
+            </ol>
+
+
+        </section> -->
+
+
+        <!-- is each one a getter or setter? -->
+<!--         <section id="anatomy2" class="twoColumns">
+          <h3>Methods to Memorize:</h3>
+          <h4>No arguments</h4>
+           <p class="fragment"><span class="blue left">.hide()</span> <span>Adds an inline style of "display: none" to the element</span></p>
+          <p class="fragment"><span class="blue left">.show()</span> <span>Adds an inline style of "display: block" to the element</span></p>
+          <p class="fragment"><span class="blue left">.remove()</span> <span>Deletes element from the DOM</span></p>
+          <p class="fragment"><span class="blue left">.html()</span> <span>Retrieves html within the selected element</span></p>
+          <p class="fragment"><span class="blue left">.text()</span> <span>Retrieves only the text within the selected element</span></p>
+          <p class="fragment"><span class="blue left">.parent()</span> <span>Retrieves the element's direct parent</span></p>
+        </section> -->
+
+
+<!--         <section id="anatomy2" class="twoColumns">
+          <h3>Methods to Memorize:</h3>
+          <h4>No arguments</h4>
+          <p class="fragment"><span class="blue left">.children()</span> <span>Retrieves all direct children of the element</span></p>
+          <p class="fragment"><span class="blue left">.next()</span> <span>Retrieves the next single element at the same level in the DOM tree</span></p>
+          <p class="fragment"><span class="blue left">.width()</span> <span>Calculates width of element</span></p>
+          <p class="fragment"><span class="blue left">.height()</span> <span>Calculates height of element</span></p>
+          <p class="fragment"><span class="blue left">.fadeOut()</span> <span>Gradually decreases opacity of element</span></p>
+          <p class="fragment"><span class="blue left">.fadeIn()</span> <span>Gradually increases opacity of element</span></p>
+        </section> -->
+
+        <!-- chaining -->
+        <section>
+          <h3>Examples:</h3>
+          <br>
+          <pre><code>$('.hero img').remove();</code>
+          
+          <code>$('#banner > span').hide();</code>
+          
+          <code>$('#banner').children().hide();</code>
+          
+          <code>$('img:not(.hero img)').fadeOut();</code>
+        </section>
+
+<!--         <section >
+          <h3>Methods to Memorize:</h3>
+          <h4>Single argument</h4>
+          <p class="fragment"><span class="blue left">.addClass('your-classname')</span> &mdash; <span>Adds your-classname as a class attribute on to the element</span></p>
+          <p class="fragment"><span class="blue left">.removeClass('your-classname')</span> &mdash;<span>Removes your-classname as a class attribute on to the element</span></p>
+          <p class="fragment"><span class="blue left">.attr('src')</span> &mdash;<span>Retrieves the src attribute for the element</span></p>
+          <p class="fragment"><span class="blue left">.css('background-color')</span>&mdash; <span>Retrieves the background color of the element</span></p>
+          <p class="fragment"><span class="blue left">.append('&lt;h1&gt;Hey!&lt;/h1&gt;')</span> &mdash;<span>Inserts an h1 tag after the element</span></p>
+        </section> -->
+
+        <section>
+          <h3>Examples:</h3>
+          <br>
+          <pre><code>$('.hero img').attr('src');</code>
+          
+          <code>$('#banner > span').addClass('visible');</code>
+          
+          <code>$('#banner').children().append('!');</code>
+          
+        </section>
+
+<!--         <section >
+          <h3>Methods to Memorize:</h3>
+          <h4>Single argument- Getters turn to Setters</h4>
+          <p class="fragment"><span class="blue left">.html()</span> &mdash; <span>Retrieves html within element</span></p>
+          <p class="fragment"><span class="blue left">.html('&lt;h1&gt;Hey!&lt;/h1&gt;');</span> &mdash;<span>Inserts/Replaces html within element</span></p>
+          <br>
+          <p class="fragment"><span class="blue left">.text()</span> &mdash; <span>Retrieves text within element</span></p>
+          <p class="fragment"><span class="blue left">.text('Hey you!');</span> &mdash;<span>Inserts/Replaces text within element</span></p>
+          <br>
+          <p class="fragment"><span class="blue left">.width()</span> &mdash;<span>Retrieves the width of element</span></p>
+          <p class="fragment"><span class="blue left">.width(300)</span>&mdash; <span>Sets the width of the element to be 300px</span></p>
+          <br>
+        </section> -->
+
+<!--         <section >
+          <h3>Methods to Memorize:</h3>
+          <h4>Multiple Arguments</h4>
+          <p class="fragment"><span class="blue left">.attr('src', 'sunset.jpg')</span> &mdash; <span>Finds the element's src attribute and changes its value to sunset.jpg</span></p>
+          <br>
+          <p class="fragment"><span class="blue left">.css('background-color', 'green')</span> &mdash;<span>Finds the elements background color and changes it to green by adding an inline style, which overrides any background-color that might already be there</span></p>
+          <br>
+          <p class="fragment">Check the <a href="https://api.jquery.com/attr/" target="_blank">jQuery Documentation</a> for info on how each method works!</p>
+
+        </section> -->
+
+        <section id="reading" class="twoColumns">
+          <h3>Reading elements &amp; their properties</h3>
+          <br>
+          <pre><code class="html">&lt;a href="http://www.google.com" style="color: green;"&gt;Google&lt;/a&gt;</pre></code>
+          <br>
+          <p><span class="blue left">$('a').text();</span> <span>"Google"</span></p>
+          <p><span class="blue left">$('a').attr('href');</span> <span>"http://www.google.com"</span></p>
+          <p><span class="blue left">$('a').css('color');</span> <span>"green"</span></p>
+          <!-- <p class="fragment" style="clear: both;">Read some properties of the link to Yasmine's email.</p> -->
+        </section>
+        <section id="reading" class="twoColumns">
+          <h3>Changing elements &amp; their properties</h3>
+          <pre><code class="html">&lt;a href="http://www.google.com" style="color: green;"&gt;Google&lt;/a&gt;</pre></code>
+          <br>
+
+          <p class="blue" style="text-align: left">$('a').text('Yahoo!');</p>
+          <p class="blue" style="text-align: left">$('a').attr('href', 'http://www.yahoo.com');</p>
+          <p class="blue" style="text-align: left">$('a').css({'color': 'purple', 'text-decoration': 'underline'});</p>
+        </section>
+
+<!--         <section>
+          <h3>Exercise!</h3>
+
+          <p>In demo-files/index.html, use jQuery to</p>
+
+          <ul>
+            <li class="fragment">Hide the navigation</li>
+            <li class="fragment">Add the class "spin" to the main page heading</li>
+            <li class="fragment">Change the color of the links in the opening paragraph only</li>
+            <li class="fragment">Photobomb all the gallery images with photos of your favorite celeb!</li>
+          </ul>
+        </section> -->
+
+<!-- could do all this with html & css -->
+        <section>
+          <h3>Why not just css/html?</h3>
+          <ul>
+            <li class="fragment">Sometimes you don't have access to those files</li>
+            <li class="fragment">Dynamic Content</li>
+            <li class="fragment">Conditionals</li>
+          </ul>
+
+          <pre class="fragment"><code>var isMobile = screen.width <= 640;
+
+if (isMobile) {
+  $('.desktop-nav').hide();
+  $('.mobile-nav').show();
+}
+      </code></pre>
+
+        </section>
+
+<!--        <section>
+          <h3>Why not just css/html?</h3>
+
+          <pre><code>&lt;img class="sale-img" src="images/sale.png"&gt;</code>
+
+<code class="js">
+var currentTime = new Date().getTime();
+// sets currentTime variable to current unix timestamp like 1428534443
+
+if (currentTime > 1428595627) {
+  $('.sale-img').attr('src', '/images/ends-today.png');
+}
+// changes sale image to an 'ends today' version if the time is after 7am on Sunday
+      </code></pre>
+
+        </section> -->
+
+<!--         <section>
+          <h3>Looping</h3>
+          <span class="blue">.each()</span> &mdash; <span> commonly used method to loop through a collection</span>
+          <pre class="fragment"><code class="javascript">$('ul li').each(function() {
+  console.log('This is a list item.');
+});</code>
+
+          <code class="javascript fragment">$('ul li').each(function(index) {
+  console.log('This is list item #' + index);
+});</code></pre>
+        </section> -->
+<!--         <section>
+          <h3>Index and This</h3>
+          <p><span class="blue">index</span>: the function supplied to "each" is automatically passed the number of the current loop iteration, which will generally match the index of each member of the collection.</p>
+          <p class="fragment"><span class="blue">this</span>: "this" is the context of any function. Frequently in jQuery, "this" will refer to the element being pointed to by the iterator.</p>
+          <p class="fragment">Other built-in methods are sometimes passed other pertinent data.</p>
+        </section> -->
+
+<!--         <section>
+          <h3>Looping</h3>
+          <p class="fragment">Use 'this' as an iterator:</p>
+
+          <pre><code class="javascript fragment">$('ul li').each(function() {
+  $(this).append('!');
+});</code></pre>
+<br>
+<p class="fragment">To be more efficient, cache a variable for $(this):</p>
+          <pre><code class="javascript fragment">
+$('ul li').each(function() {
+  var $this = $(this);
+  $this.append('!');
+});</code></pre>
+        </section> -->
+
+<!--         <section>
+          <h3>Exercise!</h3>
+          <br>
+
+          <p>In demo-files/index.html, use .each() to credit each listed quote to Ryan Gosling!</p>
+
+          <ul>
+            <li class="blue" >"You just tell me what you want, and I'm gonna be that for you." &mdash;Ryan Gosling</li>
+          </ul>
+        <br>
+        <br>
+          <p>Challenge: Give credit at the beginning of each quote</p>
+          <ul>
+            <li class="blue">According to Ryan Gosling, "You just tell me what you want, and I'm gonna be that for you."</li>
+          </ul>
+        </section> -->
+
+        <!-- Interaction -->
+<!--         <section>
+          <h3>Interaction</h3>
+          <p class="center">The bread and butter of jQuery.</p>
+          <br>
+          <img src="http://i.perezhilton.com/wp-content/uploads/2014/07/seinfeld-celebration.gif" style="margin: 0 auto;">
+        </section> -->
+        <section>
+          <h3>Events</h3>
+          <br>
+          <ul>
+            <li>click</li>
+            <li>mouseEnter / Leave (hover)</li>
+            <li>submit</li>
+            <li>scroll / resize</li>
+            <li>Many more: <a href="http://api.jquery.com/category/events/">http://api.jquery.com/category/events/</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Interaction</h3>
+          <ul>
+            <li>Most events happen via the <a href="http://api.jquery.com/on/">.on()</a> method, which usually takes two args.</li>
+            <li>The first arg is the event, passed in as a string</li>
+            <li>The second arg is a function that will run when the event happens, called an event handler</li>
+<pre><code>
+$('button').on('click', function() {
+  console.log('the button was clicked!');
+});
+</code></pre>
+</section>
+<section>
+          <h3>Next Steps</h3>
+          <ul>
+            <li class="fragment">Read Up!
+              <ul><li><a href="http://www.amazon.com/JavaScript-JQuery-Interactive-Front-End-Development/dp/1118531647">JavaScript & JQuery by Jon Duckett</a></li></ul>
+            </li>
+            <br>
+            <li class="fragment">Practice!
+              <ul><li><a href="http://www.codecademy.com/tracks/javascript">Codeacademy JavaScript Track</a></li>
+              <li><a href="http://teamtreehouse.com/library/javascript-foundations">Treehouse JavaScript Foundations Course</a></li>
+              <li><a href="https://www.codeschool.com/paths/javascript">Code School JavaScript Course</a></li></ul>
+            </li>
+            <br>
+            <li class="fragment">Build Something!
+              <ul><li>FAQ list, gallery, quiz, calculator, or whatever else you can cook up!</li></ul>
+            </li>
+          </ul>
+        </section>
+
+
+
+
+        <section>
+          <h2>Questions?</h2>
+          <div style="font-size:1200%; height:100%; margin-top:30%" class="blue">?
+            <div class="clear"></div></div>
+        </section>
+        <section>
+          <h2>Thank You!</h2>
+          <br>
+          <h4 class="center">Get in touch!</h4>
+          <p class="center"><a href="http://twitter.com/ahoefinger">@ahoefinger</a></p>
+          <p class="center">alexandra.hoefinger@gmail.com</a</p>
+        </section>
+<!--             <section>
               <h3>DOM Access: HTML 5</h3>
               <p>In newer browsers, you can use other methods too.</p>
               <p>Available in <a href="http://caniuse.com/#search=getElementsByClassName">IE9+, FF3.6+, Chrome 17+, Safari 5+</a>:</p>
@@ -976,8 +1369,8 @@ document.getElementsByClassName(className);
 document.querySelector(cssQuery);
 document.querySelectorAll(cssQuery);
               </code></pre>
-            </section>
-            <section>
+            </section> -->
+<!--             <section>
               <h3>getElement vs. getElements</h3>
               <p>Any method that starts with "getElement" will return a <span class = "blue">single</span> node.</p>
               <pre><code>
@@ -988,9 +1381,9 @@ document.getElementById('uniqueID'); //returns a single node
 document.getElementsByTagName('p'); //returns multiple nodes
 var specficParagraph = document.getElementsByTagName('p')[2];
               </code></pre>
-            </section>
+            </section> -->
 
-            <section>
+<!--             <section>
               <h3>DOM Nodes: Attributes</h3>
               <p>You can access and change attributes of DOM nodes using dot notation.</p>
               <p>To change this element:</p>
@@ -1003,8 +1396,8 @@ var imgKitten = document.getElementById('kittenPic');
 var oldSrc = imgKitten.src;
 imgKitten.src = 'http://placekitten.com/100/500';
               </code></pre>
-            </section>
-            <section>
+            </section> -->
+<!--             <section>
               <h3>DOM Nodes: Getting and Setting Attributes</h3>
               <p>You can also use <code>getAttribute/setAttribute</code></p>
               <pre><code>
@@ -1016,8 +1409,8 @@ var imgKitten = document.getElementById('kittenPic');
 var oldSrc = imgKitten.getAttribute('src');
 imgKitten.setAttribute('src', 'http://placekitten.com/100/500');
               </code></pre>
-            </section>
-            <section>
+            </section> -->
+<!--             <section>
               <h3>DOM Nodes: Styles</h3>
               <p>You can change page css using<code>style</code></p>
               <p>To make this CSS:</p>
@@ -1031,8 +1424,8 @@ body {
 var pageNode = document.getElementsByTagName('body')[0];
 pageNode.style.color = 'red';
               </code></pre>
-            </section>
-            <section>
+            </section> -->
+<!--             <section>
               <h3>DOM Nodes: More Styles</h3>
               <p>Change any CSS property with a "-" to camelCase, and be sure to include a unit on any number</p>
               <p>To make this CSS:</p>
@@ -1048,14 +1441,14 @@ var pageNode = document.getElementsByTagName('body')[0]
 pageNode.style.backgroundColor = 'pink';
 pageNode.style.paddingTop = '10px';
               </code></pre>
-            </section>
-            <section>
+            </section> -->
+<!--             <section>
                 <h3>Let's Develop It</h3>
                 <p>Create a simple HTML page or <a href="files/class3.zip">use this sample code</a>.</p>
                 <p>Isolate a node (an element on the page) and change an attribute or add a new style.</p> 
-            </section>       
+            </section>  -->      
 
-            <section>
+<!--             <section>
               <h3>DOM innerHTML</h3>
               <p>Each DOM node has an <code>innerHTML</code> property with the HTML of all its children. You can use the property to view or change the HTML of a node.</p>
               <p>For example, you can overwrite the entire body:</p>
@@ -1067,8 +1460,8 @@ pageNode.innerHTML = '&lt;h1&gt;Oh Noes!&lt;/h1&gt; &lt;p&gt;I just changed the 
               <pre><code>
 pageNode.innerHTML += '...just adding this bit at the end of the page.';
               </code></pre>
-            </section>
-            <section>
+            </section> -->
+<!--             <section>
               <h3>DOM innerHTML continued</h3>
               <p>You can also target a particular element</p>
               <p>To fill this HTML element:</p>
@@ -1080,8 +1473,8 @@ pageNode.innerHTML += '...just adding this bit at the end of the page.';
 var warningParagraph = document.getElementById('warning');
 warningParagraph.innerHTML = 'Danger Will Robinson!';
               </code></pre>
-            </section>
-            <section>
+            </section> -->
+<!--             <section>
               <h3>Creating New Nodes</h3>
               <p>The <code>document</code> object also provides ways to create nodes from scratch:</p>
               <pre><code>
@@ -1089,8 +1482,8 @@ document.createElement(tagName);
 document.createTextNode(text);
 document.appendChild();
               </code></pre>
-            </section>
-            <section>
+            </section> -->
+<!--             <section>
               <h3>Creating New Nodes: Sample Code</h3>
               <pre><code>
 var pageNode = document.getElementsByTagName('body')[0];
@@ -1105,8 +1498,8 @@ var paragraphText = document.createTextNode('Squee!');
 newParagraph.appendChild(paragraphText);
 pageNode.appendChild(newParagraph);
               </code></pre>
-            </section>
-            <section>
+            </section> -->
+<!--             <section>
                 <h3>Let's Develop It</h3>
                 <p>Create a new paragraph element and add it to a div on your page.</p>
             </section>  
@@ -1334,15 +1727,15 @@ targetPic.onclick = function () {
             <section>
                 <h3>Let's Develop It</h3>
                 <p>Using the function from the previous slide as a base, try changing some animation parameters. What happens?</p>
-            </section>           
+            </section> -->           
 			
-			<section>
+<!-- 			<section>
 				<h3>Resources</h3>
 					<ul>
 						<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide" target="_blank">JavaScript Guide</a>, from the Mozilla Developers Network.</li>
 						<li><a href="http://www.codecademy.com/tracks/javascript" target="_blank">Code Academy</a>, with interactive JavaScript lessons to help you review.</li>
 					</ul>
-			</section>
+			</section> -->
 
  
 			</div><!-- Close .slides -->
